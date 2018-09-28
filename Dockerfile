@@ -9,9 +9,10 @@ RUN apt-get update && \
         libpng-dev \
 	net-tools \
 	netcat-traditional \
-    && docker-php-ext-install -j$(nproc) iconv mcrypt \
+    && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo pdo_mysql \
+    && pecl install mcrypt-1.0.1 && docker-php-ext-enable mcrypt \
     && rm -rf /var/lib/apt/lists/*
