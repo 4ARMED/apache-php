@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.2-apache
 LABEL maintainer="Marc Wickenden <marc@4armed.com>"
 
 RUN apt-get update && \
@@ -15,10 +15,3 @@ RUN apt-get update && \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo pdo_mysql \
     && rm -rf /var/lib/apt/lists/*
-
-COPY apache.conf /etc/apache2/sites-available/000-default.conf
-COPY php.ini /usr/local/etc/php/
-
-RUN mkdir -p /app/public
-
-EXPOSE 80
