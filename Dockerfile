@@ -2,7 +2,9 @@ FROM php:7.2-apache
 LABEL maintainer="Marc Wickenden <marc@4armed.com>"
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yq libyaml-dev \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yq \
+        libapache2-modsecurity \
+        libyaml-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
