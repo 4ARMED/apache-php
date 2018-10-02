@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:7.1-apache
 LABEL maintainer="Marc Wickenden <marc@4armed.com>"
 
 RUN apt-get update && \
